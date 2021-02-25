@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 
 //Settings
+app.set('PORT', process.env.PORT || 3001)
 
 //Middlewares
 
@@ -11,6 +12,6 @@ app.get( '/', (req, res) => {
 })
 
 //Starting the server
-app.listen( 3000, () => {
-    console.log("El servidor se levanto en el puerto 3000");
+app.listen( app.get('PORT'), () => {
+    console.log(`El servidor se levanto en el puerto ${app.get('PORT')}`);
 })
