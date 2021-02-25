@@ -1,0 +1,22 @@
+        ESTRUCTURA DE CARPETAS
+
+* src: LAS CARPETAS SE VAN CREANDO SEGUN SE VA NECESITANDO
+    ** config      -> Aqui se pone todos los archivos de configuracion (conexion a base de datos tbn)
+        ***database.js -> en caso de conectar con una base de datos real
+    ** controllers -> IMPORTANTE
+    ** services    -> IMPORTANTE
+    ** routes      -> IMPORTANTE
+
+    ** utils / helper  -> Para crear funciones u otras cosas que podamos necesitar
+    ** models          -> Para en caso de que creamos los modelos para la base de datos
+    ** middlewares     -> Para middlewares
+    ** database        -> Para simular data y poder usar
+
+    ** app     -> Para hacer el front (react y otro) / Aqui otro index pero del Front
+    ** public  -> informacion que se expone (envia cualquier archivo q tenga al frontend / Aqui ira el codigo convertido de react a html/css/js)
+    
+    ** app.js  -> Archivo principal
+
+* openshift -> para conectar openshift (toda la configuracion y exposicion)
+* swagger   -> para conectar swagger (toda la configuracion y exposicion)
+* .env      -> Archivo de variables de entorno
