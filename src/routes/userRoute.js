@@ -1,11 +1,8 @@
 const express = require('express')
 const userRouter = express.Router();
+const userController = require("../controllers/userController")
 
-userRouter.get("/", (req, res) => {
-        res.send("DESDE LA ARCHIVO ROUTER - traer usuarios")
-    })
-    .get("/:id_user", (req, res) => {
-        res.send("DESDE LA ARCHIVO ROUTER - traer usuario segun id")
-    })
+userRouter.get("/", userController.findUsers)
+    .get("/:id_user", userController.findUserId)
 
 module.exports = userRouter;
