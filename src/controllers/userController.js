@@ -1,12 +1,15 @@
+const userService = require("../services/userServices")
 
-const findUsers = (req, res) => {
-    return res.send("DESDE LA ARCHIVO CONTROLLER - traer usuarios");
+const showUsuarios = (req, res) => {
+    const mensaje = userService.findUsers();
+    res.send(mensaje)
 }
-const findUserId = (req, res) => {
-    return res.send("DESDE LA ARCHIVO CONTROLLER - traer usuarios segun id");
+const showUsuarioById = (req, res) => {
+    const mensaje = userService.findUsersById();
+    res.send(mensaje)
 }
 
 module.exports = {
-    findUsers,
-    findUserId
+    showUsuarios,
+    showUsuarioById
 }
