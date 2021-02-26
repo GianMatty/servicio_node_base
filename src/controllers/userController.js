@@ -1,11 +1,12 @@
 const userService = require("../services/userServices")
 
 const showUsuarios = (req, res) => {
-    const mensaje = userService.findUsers();
-    res.send(mensaje)
+    const usuarios = userService.findUsers();
+    res.send(usuarios)
 }
 const showUsuarioById = (req, res) => {
-    const mensaje = userService.findUsersById();
+    const { id_user } = req.params;
+    const mensaje = userService.findUsersById(id_user);
     res.send(mensaje)
 }
 
