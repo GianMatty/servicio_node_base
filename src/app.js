@@ -1,16 +1,18 @@
-const express = require('express')
-const app = express()
+const express = require("express");
+const userRouter = require('./routes/userRoute')
+const app = express();
 
 //Settings
+app.set('port', process.env.PORT || 3002)
 
 //Middlewares
+// app.use(express.json())
+// app.use(express.urlencoded({extended: false}))
 
 //Routes
-app.get( '/', (req, res) => {
-    res.send("HOLA MUNDO")
-})
+app.use('/user', userRouter)
 
 //Starting the server
-app.listen( 3000, () => {
-    console.log("El servidor se levanto en el puerto 3000");
+app.listen(app.get('port'), () => {
+    console.log(`El servidor esta encendido en el puerto ${app.get('port')}`)
 })
