@@ -4,27 +4,41 @@ const findUsers = () => {
     const data = users.usuarios();
     return data
 }
-const findUsersById = (id) => {
+const findUsersById = (req) => {
+    const { id_user } = req.params;
     let data = users.usuarios();
-    const user = data.filter( usuario => {
-                    if(usuario.id.toString() === id){
-                        return usuario
-                    }
-                });
-    
-    // data.forEach( usuario => {
-    //     if(usuario.id === id){
-    //         console.log("dentre")
-    //     }
-    // });
-    if(user.length > 0){
-        return data
-    }else {
-        return "no existe el usuario"
-    }
+    const user = data.filter( usuario => usuario.id.toString() === id_user);
+    const response = user.length ?  user : "no existe el usuario";
+    return response;
+}
+const saveUser = (req) => {
+    const { id_user } = req.params;
+    console.log("aaaa",req)
+
+    let data = users.usuarios();
+    const user = data.filter( usuario => usuario.id.toString() === id_user);
+    const response = user.length ?  user : "no existe el usuario";
+    return response;
+}
+const editUserById = (req) => {
+    const { id_user } = req.params;
+    let data = users.usuarios();
+    const user = data.filter( usuario => usuario.id.toString() === id_user);
+    const response = user.length ?  user : "no existe el usuario";
+    return response;
+}
+const deleteUserById = (req) => {
+    const { id_user } = req.params;
+    let data = users.usuarios();
+    const user = data.filter( usuario => usuario.id.toString() === id_user);
+    const response = user.length ?  user : "no existe el usuario";
+    return response;
 }
 
 module.exports = {
     findUsers,
-    findUsersById
+    findUsersById,
+    saveUser,
+    editUserById,
+    deleteUserById
 }
