@@ -10,7 +10,6 @@ const showUsuarioById = (req, res) => {
 }
 const saveUsuario = (req, res) => { 
     const mensaje = userService.saveUser(req);
-    console.log("matias", req.body)
     res.send(mensaje)
 }
 const editUsuarioById = (req, res) => { 
