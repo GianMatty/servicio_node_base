@@ -13,11 +13,11 @@ const saveUsuario = (req, res) => {
     res.send(mensaje)
 }
 const editUsuarioById = (req, res) => { 
-    const mensaje = userService.findUsersById(req);
+    const mensaje = userService.editUserById(req);
     res.send(mensaje)
 }
 const deleteUsuarioById = (req, res) => { 
-    const mensaje = userService.findUsersById(req);
+    const mensaje = userService.deleteUserById(req);
     res.send(mensaje)
 }
 

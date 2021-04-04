@@ -1,39 +1,40 @@
-const users = require("../data/userDatabase")
+const database = require("../data/userDatabase")
 
 const findUsers = () => {
-    const data = users.usersDatabase;
-    return data
+    const response = database.usersDatabase;
+    return response;
 }
 const findUsersById = (req) => {
     const { id_user } = req.params;
-    let data = users.usuarios();
+    let data = database.usersDatabase;
     const user = data.filter( usuario => usuario.id.toString() === id_user);
     const response = user.length ?  user : "no existe el usuario";
     return response;
 }
 const saveUser = (req) => {
     const { body } = req;
-    users.usersDatabase.push(body)
-    console.log(users.usersDatabase)
-    const usersUpdated = users.usuarios();
-    usersUpdated.push(body);
-    console.log(users.usuarios())
-    // const user = data.filter( usuario => usuario.id.toString() === id_user);
-    // const response = user.length ?  user : "no existe el usuario";
-    return body;
-}
-const editUserById = (req) => {
-    const { id_user } = req.params;
-    let data = users.usuarios();
-    const user = data.filter( usuario => usuario.id.toString() === id_user);
-    const response = user.length ?  user : "no existe el usuario";
+    database.usersDatabase.push(body);
+    let response = database.usersDatabase
     return response;
 }
+
+const editUserById = (req) => {
+    const { id_user } = req.params;
+    const { body } = req;
+    let data = database.usersDatabase;
+    const user = data.find( usuario => usuario.id.toString() === id_user);
+    const userPosition = data.findIndex( usuario => usuario.id.toString() === id_user);
+    database.usersDatabase[userPosition] = body;
+    let response = database.usersDatabase;
+    return response;
+}
+
 const deleteUserById = (req) => {
     const { id_user } = req.params;
-    let data = users.usuarios();
-    const user = data.filter( usuario => usuario.id.toString() === id_user);
-    const response = user.length ?  user : "no existe el usuario";
+    let data = database.usersDatabase;
+    const userPosition = data.findIndex( usuario => usuario.id.toString() === id_user);
+    database.usersDatabase.splice(userPosition, 1)
+    let response = database.usersDatabase;
     return response;
 }
 
