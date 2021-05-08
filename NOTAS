@@ -1,3 +1,8 @@
+===================================================================================================
+CONSUMO_LOCAL_2 -> Es usando el file system para persistir los datos guardandolo en un archivo.json
+===================================================================================================
+
+       
         ESTRUCTURA DE CARPETAS
 
 * src: LAS CARPETAS SE VAN CREANDO SEGUN SE VA NECESITANDO
